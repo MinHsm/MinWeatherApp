@@ -1,5 +1,6 @@
 package com.min.minweatherapp.Activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
@@ -27,17 +28,22 @@ class MainActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         )
 
+        binding.tvCk.setOnClickListener {
+            val intent = Intent(this@MainActivity, CityActivity::class.java)
+            startActivity(intent)
+        }
+
         initRecycleviewHourly()
         initRecyclerOtherCity()
     }
 
     private fun initRecyclerOtherCity() {
         val items: ArrayList<CityModel> = ArrayList()
-        items.add(CityModel("Paris", 28, "cloudy", 12, 20, 30))
-        items.add(CityModel("Berlin", 29, "sunny", 5, 22, 12))
-        items.add(CityModel("Rome", 30, "windy", 30, 25, 50))
-        items.add(CityModel("London", 31, "cloudy_2", 20, 20, 35))
-        items.add(CityModel("NewYork", 10, "snowy", 8, 5, 7))
+        items.add(CityModel("中山", 28, "cloudy", 12, 20, 30))
+        items.add(CityModel("成都", 29, "sunny", 5, 22, 12))
+        items.add(CityModel("重庆", 30, "windy", 30, 25, 50))
+        items.add(CityModel("赣州", 31, "cloudy_2", 20, 20, 35))
+        items.add(CityModel("西藏", 10, "snowy", 8, 5, 7))
 
         binding.view2.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
