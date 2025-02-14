@@ -28,9 +28,20 @@ class MainActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         )
 
-        binding.tvCk.setOnClickListener {
-            val intent = Intent(this@MainActivity, CityActivity::class.java)
-            startActivity(intent)
+        binding.chipNavigator.setOnItemSelectedListener { id ->
+            when (id) {
+                R.id.home -> {
+                    startActivity(Intent(this@MainActivity, MainActivity::class.java))
+                }
+
+                R.id.profile -> {
+                    startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
+                }
+
+                R.id.bookmark -> {
+                    startActivity(Intent(this@MainActivity, BookMarkActivity::class.java))
+                }
+            }
         }
 
         initRecycleviewHourly()
@@ -39,16 +50,28 @@ class MainActivity : AppCompatActivity() {
 
     private fun initRecyclerOtherCity() {
         val items: ArrayList<CityModel> = ArrayList()
-        items.add(CityModel("中山", 28, "cloudy", 12, 20, 30))
-        items.add(CityModel("成都", 29, "sunny", 5, 22, 12))
-        items.add(CityModel("重庆", 30, "windy", 30, 25, 50))
-        items.add(CityModel("赣州", 31, "cloudy_2", 20, 20, 35))
-        items.add(CityModel("西藏", 10, "snowy", 8, 5, 7))
+        items.add(CityModel("中山", 28, "cloudy", 12, 20, 30, "多云"))
+        items.add(CityModel("成都", 29, "sunny", 5, 22, 12, "晴"))
+        items.add(CityModel("重庆", 30, "windy", 30, 25, 50, "大风"))
+        items.add(CityModel("赣州", 31, "cloudy_2", 20, 20, 35, "局部多云"))
+        items.add(CityModel("西藏", 10, "snowy", 8, 5, 7, "小雪"))
 
         binding.view2.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
-        binding.view2.adapter = OtherCityAdapter(items)
+        val adapter = OtherCityAdapter(items) { city ->
+            val intent = Intent(this@MainActivity, CityActivity::class.java)
+            intent.putExtra("city_name", city.cityName)
+            intent.putExtra("city_temperature", city.temp)
+            intent.putExtra("city_wind", city.wind)
+            intent.putExtra("city_humidity", city.humidity)
+            intent.putExtra("city_rain", city.rain)
+            intent.putExtra("city_weather", city.weatherQk)
+            intent.putExtra("city_pic_path", city.picPath)
+            startActivity(intent)
+        }
+
+        binding.view2.adapter = adapter
     }
 
     private fun initRecycleviewHourly() {

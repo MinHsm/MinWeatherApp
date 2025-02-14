@@ -11,7 +11,10 @@ import com.min.minweatherapp.databinding.ViewholderCityBinding
 /**
  *Created by ming on 2025/1/9.
  */
-class OtherCityAdapter(private val items: ArrayList<CityModel>) :
+class OtherCityAdapter(
+    private val items: ArrayList<CityModel>,
+    private val onItemClickListener: (CityModel) -> Unit
+) :
     RecyclerView.Adapter<OtherCityAdapter.Viewholder>() {
 
     private lateinit var context: Context
@@ -41,6 +44,10 @@ class OtherCityAdapter(private val items: ArrayList<CityModel>) :
             Glide.with(context)
                 .load(drawableResourceId)
                 .into(pic)
+
+            holder.itemView.setOnClickListener {
+                onItemClickListener(item)
+            }
         }
     }
 
