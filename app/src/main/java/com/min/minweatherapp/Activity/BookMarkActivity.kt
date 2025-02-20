@@ -20,10 +20,10 @@ class BookMarkActivity : AppCompatActivity() {
 
         binding.chipBookmark.setItemSelected(R.id.bookmark, true)
 
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-        )
+//        window.setFlags(
+//            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+//            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+//        )
 
         binding.chipBookmark.setOnItemSelectedListener { id ->
             when (id) {

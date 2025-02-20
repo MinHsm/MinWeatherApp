@@ -33,7 +33,8 @@ class OtherCityAdapter(
             cityTxt.text = item.cityName
             windTxt.text = "${item.wind} Km/h"
             humidityTxt.text = "${item.humidity}%"
-            tempTxt.text = "${item.temp}"
+            tempTxt.text = "${item.temp}˚C"
+            rainTxt.text = "${item.rain}%"
 
             val drawableResourceId = holder.itemView.resources.getIdentifier(
                 item.picPath,

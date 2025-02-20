@@ -28,7 +28,7 @@ class HourlyAdapter(private val items: ArrayList<HourlyModel>) :
         val item = items[position]
         holder.binding.apply {
             hourTxt.text = item.hour
-            tempTxt.text = "${item.temp}"
+            tempTxt.text = "${item.temp}˚C"
 
             val drawableResourceId = holder.itemView.resources.getIdentifier(
                 item.picPath,

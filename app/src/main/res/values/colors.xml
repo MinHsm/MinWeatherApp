@@ -4,4 +4,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="green">#083139</color>
     <color name="lightGreen">#2d525a</color>
+    <color name="wBlue">#4682EA</color>
+    <color name="wGrey">#F4F4F4</color>
+    <color name="wTxt">#333333</color>
+    <color name="cTxt">#888888</color>
+    <color name="wdColor">#FFD700</color>
+    <color name="fsColor">#4A90E2</color>
 </resources>

@@ -10,16 +10,17 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
+        android:scaleType="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bg" />
+        app:srcCompat="@drawable/weather_bg"/>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingTop="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="24dp"
                 android:background="@drawable/white_full_corner">
 
@@ -64,7 +65,7 @@
                     android:layout_marginTop="2dp"
                     android:layout_marginEnd="4dp"
                     android:layout_marginBottom="2dp"
-                    android:background="@drawable/green_full_corner"
+                    android:background="@drawable/light_green_bg"
                     android:text="搜索"
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -78,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="24dp"
                 android:text="25˚C"
-                android:textColor="@color/white"
+                android:textColor="@color/wTxt"
                 android:textSize="70sp"
                 android:textStyle="bold" />
 
@@ -99,6 +100,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
+                    android:layout_marginStart="10dp"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView2"
@@ -117,15 +119,15 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="风速"
-                            android:textColor="@color/white"
-                            android:textSize="13sp" />
+                            android:textColor="@color/cTxt"
+                            android:textSize="16sp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="12 km/h"
-                            android:textColor="@color/white"
-                            android:textSize="18sp"
+                            android:textColor="@color/wTxt"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
@@ -142,15 +144,15 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="湿度"
-                            android:textColor="@color/white"
-                            android:textSize="13sp" />
+                            android:textColor="@color/cTxt"
+                            android:textSize="16sp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="18%"
-                            android:textColor="@color/white"
-                            android:textSize="18sp"
+                            android:textColor="@color/wTxt"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
@@ -167,15 +169,15 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="降雨"
-                            android:textColor="@color/white"
-                            android:textSize="13sp" />
+                            android:textColor="@color/cTxt"
+                            android:textSize="16sp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="22%"
-                            android:textColor="@color/white"
-                            android:textSize="18sp"
+                            android:textColor="@color/wTxt"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
@@ -189,7 +191,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:text="今日"
-                android:textColor="@color/white"
+                android:textColor="@color/wTxt"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -213,7 +215,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_weight="1"
                     android:text="其他城市"
-                    android:textColor="@color/white"
+                    android:textColor="@color/wTxt"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -223,8 +225,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="24dp"
-                    android:text="查看"
-                    android:textColor="@color/white"
+                    android:text="更多"
+                    android:textColor="@color/wTxt"
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>

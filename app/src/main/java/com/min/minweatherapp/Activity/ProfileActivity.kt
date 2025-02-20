@@ -19,10 +19,10 @@ class ProfileActivity : AppCompatActivity() {
 
         binding.chipProfile.setItemSelected(R.id.profile, true)
 
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-        )
+//        window.setFlags(
+//            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+//            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+//        )
 
         binding.chipProfile.setOnItemSelectedListener { id ->
             when (id) {

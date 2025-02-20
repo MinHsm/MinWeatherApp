@@ -42,10 +42,10 @@ class CityActivity : AppCompatActivity() {
             .load(drawableResourceId)
             .into(binding.cityPic)
 
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-        )
+//        window.setFlags(
+//            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+//            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+//        )
 
         binding.ivBack.setOnClickListener {
             onBackPressed()

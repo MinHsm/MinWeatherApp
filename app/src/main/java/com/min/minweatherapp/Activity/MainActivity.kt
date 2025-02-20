@@ -23,10 +23,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.chipNavigator.setItemSelected(R.id.home, true)
 
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-        )
+//        window.setFlags(
+//            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+//            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+//        )
 
         binding.chipNavigator.setOnItemSelectedListener { id ->
             when (id) {
