@@ -1,7 +1,7 @@
-package com.min.minweatherapp.Domain
+package com.min.modulebweather.Domain
 
 /**
- * Created by Min on 2025/1/17.
+ *Created by ming on 2025/2/24.
  */
 data class FutureDomain(
     val day: String,

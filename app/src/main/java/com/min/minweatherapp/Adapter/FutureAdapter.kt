@@ -1,49 +1,49 @@
-package com.min.minweatherapp.Adapter
+package com.min.modulebweather.Adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.min.minweatherapp.Domain.FutureDomain
 import com.min.minweatherapp.databinding.ViewholderFutureBinding
+import com.min.modulebweather.Domain.FutureDomain
 
 /**
- * Created by Min on 2025/1/17.
+ *Created by ming on 2025/2/25.
  */
-class FutureAdapter(private val items: ArrayList<FutureDomain>) :
+class FutureAdapter(private var items: ArrayList<FutureDomain>) :
     RecyclerView.Adapter<FutureAdapter.Viewholder>() {
 
     private lateinit var context: Context
 
     class Viewholder(val binding: ViewholderFutureBinding) : RecyclerView.ViewHolder(binding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FutureAdapter.Viewholder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Viewholder {
         context = parent.context
         val binding = ViewholderFutureBinding.inflate(LayoutInflater.from(context), parent, false)
         return Viewholder(binding)
     }
 
-    override fun onBindViewHolder(holder: FutureAdapter.Viewholder, position: Int) {
+    override fun getItemCount(): Int = items.size
+
+    override fun onBindViewHolder(holder: Viewholder, position: Int) {
         val item = items[position]
 
         holder.binding.apply {
-            dayTxt.text = item.day
-            statusTxt.text = item.status
-            lowTxt.text = item.lowTemp.toString()
-            highTxt.text = item.highTemp.toString()
+            ftXq.text = item.day
+            ftWqk.text = item.status
+            ftHTemp.text = item.highTemp.toString()
+            ftLTemp.text = item.lowTemp.toString()
 
             val drawableResourceId = holder.itemView.resources.getIdentifier(
-                item.picPath,
+                item.picPath?:"sunny",
                 "drawable",
                 context.packageName
             )
 
             Glide.with(context)
                 .load(drawableResourceId)
-                .into(pic)
+                .into(ftImg)
         }
     }
-
-    override fun getItemCount(): Int = items.size
 }

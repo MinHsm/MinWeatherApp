@@ -1,16 +1,23 @@
 package com.min.minweatherapp.Activity
 
+import android.content.Context
 import android.content.Intent
+import android.content.res.AssetManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.WindowManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.min.minweatherapp.Adapter.HourlyAdapter
-import com.min.minweatherapp.Adapter.OtherCityAdapter
-import com.min.minweatherapp.Domain.CityModel
-import com.min.minweatherapp.Domain.HourlyModel
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.min.minweatherapp.Activity.BookMarkActivity
+import com.min.minweatherapp.Activity.ProfileActivity
+import com.min.minweatherapp.Domain.CityDomain
 import com.min.minweatherapp.R
 import com.min.minweatherapp.databinding.ActivityMainBinding
+import com.min.modulebweather.Adapter.CardCityAdapter
+import com.min.modulebweather.Adapter.HourlyAdapter
+import com.min.modulebweather.Domain.HourlyModel
+import com.min.modulebweather.Domain.WeatherDomain
+import java.io.InputStreamReader
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,69 +28,78 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.chipNavigator.setItemSelected(R.id.home, true)
+        val weatherDataJson = loadJsonFromAsset(this, "weather_data.json")
+        val weatherData = parseWeatherData(weatherDataJson)
+        val cityData = weatherData.cityData
+        val hourlyData = weatherData.hourlyData
 
-//        window.setFlags(
-//            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-//            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-//        )
+        binding.chipNavigator.setItemSelected(R.id.home, true)
 
         binding.chipNavigator.setOnItemSelectedListener { id ->
             when (id) {
                 R.id.home -> {
-                    startActivity(Intent(this@MainActivity, MainActivity::class.java))
-                }
-
-                R.id.profile -> {
-                    startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
+                    startActivity(Intent(this@MainActivity, CityActivity::class.java))
                 }
 
                 R.id.bookmark -> {
                     startActivity(Intent(this@MainActivity, BookMarkActivity::class.java))
                 }
+
+                R.id.profile -> {
+                    startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
+                }
             }
+
         }
 
-        initRecycleviewHourly()
-        initRecyclerOtherCity()
+        initHourly(hourlyData)
+        initCardCity(cityData)
+
     }
 
-    private fun initRecyclerOtherCity() {
-        val items: ArrayList<CityModel> = ArrayList()
-        items.add(CityModel("中山", 28, "cloudy", 12, 20, 30, "多云"))
-        items.add(CityModel("成都", 29, "sunny", 5, 22, 12, "晴"))
-        items.add(CityModel("重庆", 30, "windy", 30, 25, 50, "大风"))
-        items.add(CityModel("赣州", 31, "cloudy_2", 20, 20, 35, "局部多云"))
-        items.add(CityModel("西藏", 10, "snowy", 8, 5, 7, "小雪"))
+    private fun loadJsonFromAsset(context: Context, fileName: String): String {
+        val assetManager: AssetManager = context.assets
+        val inputStream = assetManager.open(fileName)
+        val reader = InputStreamReader(inputStream)
+        return reader.readText()
+    }
+
+    private fun parseWeatherData(jsonData: String): WeatherDomain {
+        val gson = Gson()
+        val type = object : TypeToken<WeatherDomain>() {}.type
+        return gson.fromJson(jsonData, type)
+    }
+
+    private fun initCardCity(items: List<CityDomain>) {
+
+        val cityList = ArrayList(items)
 
         binding.view2.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
-        val adapter = OtherCityAdapter(items) { city ->
+        val adapter = CardCityAdapter(cityList) { city ->
             val intent = Intent(this@MainActivity, CityActivity::class.java)
-            intent.putExtra("city_name", city.cityName)
-            intent.putExtra("city_temperature", city.temp)
-            intent.putExtra("city_wind", city.wind)
-            intent.putExtra("city_humidity", city.humidity)
-            intent.putExtra("city_rain", city.rain)
-            intent.putExtra("city_weather", city.weatherQk)
-            intent.putExtra("city_pic_path", city.picPath)
+            intent.putExtra("ct_name", city.cityName)
+            intent.putExtra("ct_temp", city.temp)
+            intent.putExtra("ct_pic", city.picPath)
+            intent.putExtra("ct_wind", city.wind)
+            intent.putExtra("ct_humidity", city.humidity)
+            intent.putExtra("ct_rain", city.rain)
+            intent.putExtra("ct_wqk", city.weatherQk)
+
             startActivity(intent)
         }
 
         binding.view2.adapter = adapter
+
     }
 
-    private fun initRecycleviewHourly() {
-        val items: ArrayList<HourlyModel> = ArrayList()
-        items.add(HourlyModel("9 pm", 28, "cloudy"))
-        items.add(HourlyModel("10 pm", 29, "sunny"))
-        items.add(HourlyModel("11 pm", 30, "windy"))
-        items.add(HourlyModel("12 pm", 31, "cloudy_2"))
-        items.add(HourlyModel("1 am", 10, "snowy"))
+    private fun initHourly(items: List<HourlyModel>) {
+
+        val hourlyList = ArrayList(items)
 
         binding.view1.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        binding.view1.adapter = HourlyAdapter(items)
+        binding.view1.adapter = HourlyAdapter(hourlyList)
     }
 }

@@ -8,57 +8,66 @@
     android:layout_marginEnd="16dp">
 
     <TextView
-        android:id="@+id/dayTxt"
+        android:id="@+id/ftXq"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Sat"
-        android:textSize="14sp"
+        android:layout_marginStart="14dp"
+        android:text="星期一"
         android:textColor="@color/wTxt"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/pic"
+        android:id="@+id/ftImg"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginStart="32dp"
-        app:layout_constraintBottom_toBottomOf="@+id/dayTxt"
-        app:layout_constraintStart_toEndOf="@+id/dayTxt"
-        app:layout_constraintTop_toTopOf="@+id/dayTxt"
-        app:srcCompat="@drawable/sunny" />
+        android:layout_marginStart="30dp"
+        android:src="@drawable/snowy"
+        app:layout_constraintBottom_toBottomOf="@+id/ftXq"
+        app:layout_constraintStart_toEndOf="@+id/ftXq"
+        app:layout_constraintTop_toTopOf="@+id/ftXq" />
 
     <TextView
-        android:id="@+id/statusTxt"
+        android:id="@+id/ftWqk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="sunny"
+        android:layout_marginStart="20dp"
+        android:text="大雪"
         android:textColor="@color/wTxt"
-        app:layout_constraintBottom_toBottomOf="@+id/pic"
-        app:layout_constraintStart_toEndOf="@+id/pic"
-        app:layout_constraintTop_toTopOf="@+id/pic" />
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ftImg"
+        app:layout_constraintStart_toEndOf="@+id/ftImg"
+        app:layout_constraintTop_toTopOf="@+id/ftImg" />
 
     <TextView
-        android:id="@+id/lowTxt"
+        android:id="@+id/ftLTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="10"
+        android:layout_marginEnd="14dp"
+        android:text="12"
         android:textColor="@color/wTxt"
-        app:layout_constraintBottom_toBottomOf="@+id/pic"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/pic" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/highTxt"
+        android:id="@+id/ftHTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:text="20"
+        android:layout_marginEnd="30dp"
+        android:text="24"
         android:textColor="@color/wTxt"
-        app:layout_constraintBottom_toBottomOf="@+id/lowTxt"
-        app:layout_constraintEnd_toStartOf="@+id/lowTxt"
-        app:layout_constraintTop_toTopOf="@+id/lowTxt" />
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ftLTemp"
+        app:layout_constraintEnd_toStartOf="@+id/ftLTemp"
+        app:layout_constraintTop_toTopOf="@+id/ftLTemp" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

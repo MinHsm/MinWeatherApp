@@ -4,11 +4,56 @@
     android:layout_width="220dp"
     android:layout_height="150dp"
     android:layout_margin="8dp"
-    android:background="@drawable/light_grey_bg"
+    android:background="@drawable/grey_bg"
     android:elevation="3dp">
 
+    <ImageView
+        android:id="@+id/ctPic"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/cloudy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="城市"
+        android:textColor="@color/cTxt"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/ctPic"
+        app:layout_constraintTop_toTopOf="@+id/ctPic" />
+
+    <TextView
+        android:id="@+id/ctCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="中山"
+        android:textColor="@color/wTxt"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ctPic"
+        app:layout_constraintStart_toEndOf="@+id/ctPic" />
+
+    <TextView
+        android:id="@+id/ctTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="24˚C"
+        android:textSize="28sp"
+        android:textColor="@color/wTxt"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ctCity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ctCity"
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
+
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -32,7 +77,7 @@
                 android:textSize="13sp" />
 
             <TextView
-                android:id="@+id/humidityTxt"
+                android:id="@+id/ctSd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="0%"
@@ -40,6 +85,7 @@
                 android:textColor="@color/wTxt"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -57,14 +103,15 @@
                 android:textSize="13sp" />
 
             <TextView
-                android:id="@+id/windTxt"
+                android:id="@+id/ctFs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="0 km/h"
+                android:text="12Km/h"
                 android:textAlignment="center"
                 android:textColor="@color/wTxt"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -82,7 +129,7 @@
                 android:textSize="13sp" />
 
             <TextView
-                android:id="@+id/rainTxt"
+                android:id="@+id/ctJy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="0%"
@@ -90,50 +137,10 @@
                 android:textColor="@color/wTxt"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+
         </LinearLayout>
+
+
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/pic"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/cloudy_2" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="城市"
-        android:textColor="@color/cTxt"
-        app:layout_constraintStart_toEndOf="@+id/pic"
-        app:layout_constraintTop_toTopOf="@+id/pic" />
-
-    <TextView
-        android:id="@+id/cityTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="City"
-        android:textColor="@color/wTxt"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/pic"
-        app:layout_constraintStart_toStartOf="@+id/textView4" />
-
-    <TextView
-        android:id="@+id/tempTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:textColor="@color/wTxt"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/cityTxt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="@+id/textView4" />
 </androidx.constraintlayout.widget.ConstraintLayout>

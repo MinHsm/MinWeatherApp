@@ -1,15 +1,15 @@
-package com.min.minweatherapp.Adapter
+package com.min.modulebweather.Adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.min.minweatherapp.Domain.HourlyModel
 import com.min.minweatherapp.databinding.ViewholderHourlyBinding
+import com.min.modulebweather.Domain.HourlyModel
 
 /**
- *Created by ming on 2025/1/9.
+ *Created by ming on 2025/2/23.
  */
 class HourlyAdapter(private val items: ArrayList<HourlyModel>) :
     RecyclerView.Adapter<HourlyAdapter.Viewholder>() {
@@ -31,7 +31,7 @@ class HourlyAdapter(private val items: ArrayList<HourlyModel>) :
             tempTxt.text = "${item.temp}˚C"
 
             val drawableResourceId = holder.itemView.resources.getIdentifier(
-                item.picPath,
+                item.picPath?:"sunny",
                 "drawable",
                 context.packageName
             )
@@ -43,4 +43,6 @@ class HourlyAdapter(private val items: ArrayList<HourlyModel>) :
     }
 
     override fun getItemCount(): Int = items.size
+
+
 }

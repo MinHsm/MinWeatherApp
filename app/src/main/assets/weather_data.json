@@ -1,0 +1,175 @@
+{
+  "cityData": [
+    {
+      "cityName": "中山",
+      "temp": 28,
+      "weatherQk": "多云",
+      "wind": 12,
+      "humidity": 20,
+      "rain": 30,
+      "picPath": "cloudy"
+    },
+    {
+      "cityName": "成都",
+      "temp": 29,
+      "weatherQk": "晴",
+      "wind": 5,
+      "humidity": 22,
+      "rain": 12,
+      "picPath": "sunny"
+    },
+    {
+      "cityName": "重庆",
+      "temp": 30,
+      "weatherQk": "大风",
+      "wind": 30,
+      "humidity": 25,
+      "rain": 50,
+      "picPath": "windy"
+    },
+    {
+      "cityName": "赣州",
+      "temp": 31,
+      "weatherQk": "局部多云",
+      "wind": 20,
+      "humidity": 20,
+      "rain": 35,
+      "picPath": "cloudy_2"
+    },
+    {
+      "cityName": "西藏",
+      "temp": 10,
+      "weatherQk": "小雪",
+      "wind": 8,
+      "humidity": 5,
+      "rain": 7,
+      "picPath": "snowy"
+    }
+  ],
+  "hourlyData": [
+    {
+      "hour": "6 am",
+      "temp": 18,
+      "picPath": "cloudy"
+    },
+    {
+      "hour": "7 am",
+      "temp": 20,
+      "picPath": "cloudy"
+    },
+    {
+      "hour": "8 am",
+      "temp": 22,
+      "picPath": "sunny"
+    },
+    {
+      "hour": "9 am",
+      "temp": 24,
+      "picPath": "sunny"
+    },
+    {
+      "hour": "10 am",
+      "temp": 26,
+      "picPath": "sunny"
+    },
+    {
+      "hour": "11 am",
+      "temp": 28,
+      "picPath": "cloudy"
+    },
+    {
+      "hour": "12 pm",
+      "temp": 30,
+      "picPath": "sunny"
+    },
+    {
+      "hour": "1 pm",
+      "temp": 31,
+      "picPath": "sunny"
+    },
+    {
+      "hour": "2 pm",
+      "temp": 32,
+      "picPath": "sunny"
+    },
+    {
+      "hour": "3 pm",
+      "temp": 33,
+      "picPath": "cloudy"
+    },
+    {
+      "hour": "4 pm",
+      "temp": 33,
+      "picPath": "sunny"
+    },
+    {
+      "hour": "5 pm",
+      "temp": 30,
+      "picPath": "cloudy"
+    },
+    {
+      "hour": "6 pm",
+      "temp": 28,
+      "picPath": "cloudy"
+    },
+    {
+      "hour": "7 pm",
+      "temp": 26,
+      "picPath": "sunny"
+    },
+    {
+      "hour": "8 pm",
+      "temp": 24,
+      "picPath": "storm"
+    },
+    {
+      "hour": "9 pm",
+      "temp": 22,
+      "picPath": "storm"
+    }
+  ],
+  "futureData": [
+    {
+      "day": "星期一",
+      "picPath": "storm",
+      "status": "大雪",
+      "highTemp": 24,
+      "lowTemp": 12
+    },
+    {
+      "day": "星期二",
+      "picPath": "cloudy",
+      "status": "多云",
+      "highTemp": 24,
+      "lowTemp": 12
+    },
+    {
+      "day": "星期三",
+      "picPath": "windy",
+      "status": "多云",
+      "highTemp": 24,
+      "lowTemp": 12
+    },
+    {
+      "day": "星期四",
+      "picPath": "cloudy_sunny",
+      "status": "局部多云",
+      "highTemp": 24,
+      "lowTemp": 12
+    },
+    {
+      "day": "星期五",
+      "picPath": "sunny",
+      "status": "晴",
+      "highTemp": 24,
+      "lowTemp": 12
+    },
+    {
+      "day": "星期六",
+      "picPath": "rainy",
+      "status": "小雨",
+      "highTemp": 24,
+      "lowTemp": 12
+    }
+  ]
+}

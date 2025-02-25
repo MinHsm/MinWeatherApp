@@ -1,7 +1,7 @@
-package com.min.minweatherapp.Domain
+package com.min.modulebweather.Domain
 
 /**
- *Created by ming on 2025/1/9.
+ *Created by ming on 2025/2/23.
  */
 data class HourlyModel(
     val hour: String,
